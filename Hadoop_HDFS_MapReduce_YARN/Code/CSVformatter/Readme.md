@@ -1,5 +1,5 @@
 
-Spark Application: CSV formatter from text file/MySQL source table to
+#### Spark Application: CSV formatter from text file/MySQL source table to
 
     Avro     -> Print Schema/Show 5 rows/Count number of records
     Parquet  -> Print Schema/Show 5 rows/Count number of records
@@ -15,7 +15,7 @@ Spark Application: CSV formatter from text file/MySQL source table to
  
 ---
 
-Output:
+#### Output:
 
 ```
 ****************************************************************
