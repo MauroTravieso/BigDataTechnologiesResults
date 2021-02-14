@@ -74,3 +74,48 @@ $ hdfs dfs -cat /user/mpena/Flume/flume_fan-out_Import/events*
 When the spooldir/logFile.txt is modified (updated with new data), it is observed that the Flume Agent starts and updates the checkpoint metadata.
 
 As a result, any modification done to the 'logFile.txt' file is directly reflected in the console output, as well as in HDFS as soon as it happens.
+
+[*] The following figure show the sequence of the screen captures, after starting the Flume Agent, and
+as a result of the applied commands to verify, as well as the HDFS browser imported files and content,
+respectively:
+
+![Screen1](./Images/1.png)
+
+In the upper terminal, it is shown the corresponding HDFS output, while in the lower terminal, the
+console output is appreciated. In the console, because of their default logger sink extension is
+exceeded, the event body content is truncated and represented with 16 bytes. Only the first 16 literals
+of every line form the spooldir/logFile.txt can be appreciated.
+
+In the next screen capture, it can be seen the HDFS browser resultant file (events.*.log) and content:
+
+![Screen2](./Images/2.png)
+
+A description of the local filesystem spooldir/logFile.txt is depicted, while the Flume agent is still
+running:
+
+![Screen3](./Images/3.png)
+
+To test, if the spooldir/logFile.txt is modified, it is observed that the Flume Agent starts and updates the checkpoint metadata:
+
+![Screen4](./Images/4.png)
+
+The update is printed in the lower console where the Flume Agent is running:
+
+![Screen5](./Images/5.png)
+
+When the modification is performed in the spooldir/logFile.txt, The lower console prints the output and the Flume Agent starts and updates the checkpoint metadata. The HDFS output, is in the upper one.
+
+![Screen6](./Images/6.png)
+
+To summarize, in this screen capture, it can be appreciated the HDFS browser files (events.*.log’s) and the data contained:
+
+![Screen7](./Images/7.png)
+
+---
+
+
+
+
+
+
+
