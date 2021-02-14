@@ -1,0 +1,57 @@
+//**//
+https://www.tutorialspoint.com/apache_oozie/apache_oozie_quick_guide.htm
+
+//**//
+https://hadooped.blogspot.com/2013/06/apache-sqoop-part-5-scheduling-sqoop.html
+
+//**// Oozie Tutorial: Learn How to Schedule your Hadoop Jobs
+https://www.edureka.co/blog/apache-oozie-tutorial/
+
+//***// Oozie Coordinator Specification
+http://oozie.apache.org/docs/3.3.2/CoordinatorFunctionalSpec.html
+
+//**// Chunk data import / Incremental Import in Sqoop
+http://www.tanzirmusabbir.com/2013/05/chunk-data-import-incremental-import-in.html
+
+//**// Hooked on Hadoop (oozie sqoop action)
+https://hadooped.blogspot.com/2013/06/apache-sqoop-part-5-scheduling-sqoop.html
+
+//**// Table created by Oozie hive actions but invisible to Hive metastore
+http://www.openkb.info/2014/07/table-created-by-oozie-hive-actions-but.html
+
+//**// How to troubleshoot Oozie Hive action
+http://www.openkb.info/2016/07/how-to-troubleshoot-oozie-hive-action.html
+
+//**// Oozie workflow: Hive table not found but it does exist
+https://stackoverflow.com/questions/15749999/oozie-workflow-hive-table-not-found-but-it-does-exist
+
+//**// Use cases of Apache Oozie
+https://www.edureka.co/community/48988/use-cases-of-apache-oozie
+
+//**// OS Workflow Support
+https://plugins.jetbrains.com/plugin/7144-os-workflow-support
+
+//**// Hive action in failing in Oozie 
+https://community.cloudera.com/t5/Support-Questions/Hive-action-in-failing-in-Oozie/td-p/101189
+
+//**// oozie, hive job failed : unable to fetch table
+https://grokbase.com/t/cloudera/hue-user/139mcxm295/oozie-hive-job-failed-unable-to-fetch-table
+
+//**// How to troubleshoot several Apache Hive metastore problems
+https://docs.microsoft.com/en-us/azure/databricks/kb/metastore/hive-metastore-troubleshooting
+
+//**// oozie workflow example for sqoop action with end to end configuration
+https://timepasstechies.com/oozie-workflow-example-sqoop-action-end-end-configuration/
+
+https://timepasstechies.com/category/programming/data-analytics/oozie/
+
+//**// oozie workflow example for hive action with end to end configuration
+https://timepasstechies.com/oozie-workflow-example-hive-action-end-end-configuration/
+
+
+//**// CDH 5.4.4 - Oozie/Scoop Action --as-parquetfile: NoClassDefFound DatasetKeyOutputFormat
+https://community.cloudera.com/t5/Support-Questions/CDH-5-4-4-Oozie-Scoop-Action-as-parquetfile-NoClassDefFound/td-p/30122
+
+//**// Run Hive Jobs with Oozie
+https://docs.datafabric.hpe.com/60/Oozie/RunHiveJobswithOozie.html
+

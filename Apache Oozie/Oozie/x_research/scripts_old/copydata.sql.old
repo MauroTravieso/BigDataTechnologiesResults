@@ -1,0 +1,9 @@
+USE ${hive_database}; --oozie_hive; -- Using oozie_hive database
+INSERT INTO TABLE orc_table -- Copy data from people to orc tables
+SELECT
+CONCAT(first_name,' ',last_name) AS fullname,
+year_of_birth AS yearofbirth,
+(YEAR(CURRENT_DATE)-year_of_birth) AS age,
+CONCAT(city,' ',state) AS address,
+zip
+FROM people_table;

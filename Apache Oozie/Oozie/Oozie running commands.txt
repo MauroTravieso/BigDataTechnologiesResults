@@ -1,0 +1,46 @@
+
+$ hdfs dfs -ls hdfs://10.0.2.15:8020/user/cloudera
+$ hdfs dfs -mkdir -p hdfs://10.0.2.15:8020/user/cloudera/oozie/oozie_hive/input
+
+$ cd /home/cloudera/Desktop/Oozie/input
+$ hdfs dfs -copyFromLocal people_data.csv hdfs://10.0.2.15:8020/user/cloudera/oozie/oozie_hive/input
+$ cd /home/cloudera/Desktop/Oozie
+$ hdfs dfs -copyFromLocal workflow.xml hdfs://10.0.2.15:8020/user/cloudera/oozie/oozie_hive
+
+[*] To run the scripts with HQL commands  
+$ hive -f external.sql
+$ hive -f orc.sql
+$ hive -f copydata.sql
+
+[*] To test the scripts with HQL commands  
+$ hive
+hive> SHOW DATABASES;
+hive> USE oozie_hive;
+hive> SHOW TABLES;
+hive> SELECT * FROM people_table;
+hive> SELECT * FROM orc_table;
+
+
+[*] To find hive-site.xml
+$ cd /etc/hive/conf
+$ cp hive-site.xml /home/cloudera/Desktop/Oozie
+
+
+[*] On a terminal:
+
+
+$ oozie job -oozie http://localhost:11000/oozie -config <path-to>/job.properties -run 
+
+$ oozie job -oozie http://localhost:11000/oozie -config /home/cloudera/Desktop/Oozie/app/job.properties -run 
+
+
+[*] Workflow error message when killing job
+<message>Hive failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+
+<message>Hive Job failed!</message>
+
+[*] Job properties file - oozie application path
+
+oozie.wf.application.path=${nameNode}/user/${user.name}/${examplesRoot}/apps/hive
+
+oozie.wf.application.path=/home/cloudera/Desktop/Oozie

@@ -1,0 +1,9 @@
+USE ${hive_database}; --oozie_hive; -- Using oozie_hive database
+
+CREATE TABLE orc_table(
+fullname STRING, --Concatenate value of first name and last name with space as separator
+yearofbirth INT,
+age INT,         --age = current year minus year of birth
+address STRING,
+zip INT)
+STORED AS ORC;

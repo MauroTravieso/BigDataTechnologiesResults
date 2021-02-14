@@ -1,0 +1,72 @@
+<!-- Workflow - Person Data - Hive Table -->
+<!--    Job: Decision Control Flow -->
+<!-- Author: Mauro Travieso Pena -->
+
+<workflow-app xmlns = "uri:oozie:workflow:0.4" name = "fork_join-workFlow">
+
+   <!-- Start -->
+   <start to = "People_Table_Exists" />
+
+   <!-- Decision -->
+   <decision name = "People_Table_Exists">
+      <switch>
+         <case to = "People_Table">
+            ${fs:exists('hdfs://10.0.2.15:8020/user/cloudera/oozie/oozie_hive_coordinator/input') eq 'false'}
+         </case>
+         <default to = "ORC_Table" />
+      </switch>
+   </decision>
+
+   <!-- People_Table -->
+   <action name = "People_Table">
+      <hive xmlns = "uri:oozie:hive-action:0.4">
+         <job-tracker>${jobTracker}</job-tracker>
+         <name-node>${nameNode}</name-node>
+	 <job-xml>hive-site.xml</job-xml>
+         <script>${script_name_external}</script>
+      </hive>
+      <ok to = "ORC_Table_Exists" />
+      <error to = "Kill_job" />
+   </action>
+
+   <!-- Decision -->
+   <decision name = "ORC_Table_Exists">
+      <switch>
+         <case to = "ORC_Table">
+            ${fs:exists('hdfs://10.0.2.15:8020/user/hive/warehouse/oozie_hive.db/orc_table') eq 'false'}
+         </case>
+         <default to = "Insert_Into_Table" />
+      </switch>
+   </decision>
+
+   <!-- ORC_Table -->
+   <action name = "ORC_Table">
+      <hive xmlns = "uri:oozie:hive-action:0.4">
+         <job-tracker>${jobTracker}</job-tracker>
+         <name-node>${nameNode}</name-node>
+	 <job-xml>hive-site.xml</job-xml>
+         <script>${script_name_orc}</script>
+      </hive>
+      <ok to = "Insert_Into_Table" />
+      <error to = "Kill_job" />
+   </action>
+
+   <!-- Insert_Into_Table -->
+   <action name = "Insert_Into_Table">
+      <hive xmlns = "uri:oozie:hive-action:0.4">
+         <job-tracker>${jobTracker}</job-tracker>
+         <name-node>${nameNode}</name-node>
+	 <job-xml>hive-site.xml</job-xml>
+         <script>${script_name_copy}</script>
+      </hive>
+      <ok to = "End" />
+      <error to = "Kill_job" />
+   </action>
+   
+   <kill name = "Kill_job">
+      <message>Hive failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+   </kill>
+	
+   <end name = "End" />
+
+</workflow-app>

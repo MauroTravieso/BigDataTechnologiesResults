@@ -1,0 +1,27 @@
+<!-- Coordinator - Person Data - Hive Table -->
+<!--    Job: Coordinator Control Flow -->
+<!-- Author: Mauro Travieso Pena -->
+
+<coordinator-app xmlns = "uri:oozie:workflow:0.2" 
+                 name = "coordinator_insert_into_table" 
+                 frequency = "5 * * * *"
+                 start = "${startTime}"
+                 end = "${endTime}"
+                 timezone = "${timeZone}">
+   
+   <!-- Controls -->
+   <controls>
+      <timeout>1</timeout>
+      <concurrency>1</concurrency>
+      <execution>FIFO</execution>
+      <throttle>1</throttle>
+   </controls>
+  
+   <!-- Workflow Action -->
+   <action>
+      <workflow>
+         <app-path>${workflow_path}</app-path>
+      </workflow>
+   </action>
+   
+</coordinator-app>
