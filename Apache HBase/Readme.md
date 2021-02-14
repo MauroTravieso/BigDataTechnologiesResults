@@ -34,7 +34,7 @@ CREATE EXTERNAL TABLE mpena_access (
     agent STRING) 
 ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
 WITH SERDEPROPERTIES ( 
-  "input.regex" = "([^ ]*) ([^ ]*) ([^ ]*) (-|\\[[^\\]]*\\]) ([^ \"]*|\"[^\"]*\") (-|[0-9]*) (-|[0-9]*)(?: ([^ \"]*|\"[^\"]*\") ([^ \"]*|\"[^\"]*\"))?", \
+  "input.regex" = "regular_expression", \
   "output.format.string" = "%1$s %2$s %3$s %4$s %5$s %6$s %7$s %8$s %9$s"
 ) 
 STORED AS TEXTFILE;
@@ -42,16 +42,9 @@ STORED AS TEXTFILE;
 
 * **Adding the .jar file associated with the SerDe properties**
 
-```
-$ find / -name 'hive-contrib*.jar'
-```
-```
-/usr/hdp/3.1.4.0-315/hive/lib/hive-contrib-3.1.0.3.1.4.0-315.jar
-```
-
 *In the hive console*
 ```
-ADD JAR file:///usr/hdp/3.1.4.0-315/hive/lib/hive-contrib-3.1.0.3.1.4.0-315.jar;
+ADD JAR <path-to-file>.jar;
 ```
 
 * **Uploading the .log file data into the hive table, taking into account the serde properties**
