@@ -1,0 +1,16 @@
+id,department,benefits
+101,EN,Full
+101,DB,Partial
+102,BD,Partial
+103,SC,Partial
+104,AC,Full
+104,SC,Partial
+105,MD,FULL
+106,CS,Partial
+106,MD,Partial
+107,EN,Full
+107,SC,Partial
+107,MD,Partial
+108,SC,Full
+109,MD,Full
+110,MD,Partial
