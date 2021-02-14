@@ -12,6 +12,7 @@
 
 * Use Case: Oozie-Hive Integration Workflow.<br>
 * Use Case: Oozie-Hive Integration Fork and Join job execution.<br>
+* Use Case: Oozie-Hive Integration Decision<br>
 * Use Case: Oozie-Hive Integration Coordinator<br>
 
 ---
