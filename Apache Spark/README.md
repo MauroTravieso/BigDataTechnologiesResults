@@ -1,6 +1,4 @@
-# bigdata_coe_bootcamp
-
-## ProKarma Boot Camp
+## Apache Spark, SparkSQL, Spark-JBoss DROOLS integration
 
 Mauro Travieso Pena's branch
 
